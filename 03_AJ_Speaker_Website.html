@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJ Edelman — Olympian. Engineer. Jewish.</title>
+<meta name="description" content="AJ Edelman: Israel's first double-sport Winter Olympian, MIT mechanical engineer, Yale MBA. Keynote speaker on Jewish identity, peak performance, and building from nothing.">
+<meta property="og:title" content="AJ Edelman — Olympian. Engineer. Jewish.">
+<meta property="og:description" content="Keynote speaker: Jewish identity, peak performance, the engineer's case for Jewish pride.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --ink: #0a0e1a;
+    --paper: #f5f2ea;
+    --paper-warm: #ede8db;
+    --accent: #c9302c;
+    --accent-deep: #8b1f1c;
+    --gold: #b08d57;
+    --olive: #4a5d3a;
+    --muted: #6b6558;
+    --line: rgba(10, 14, 26, 0.12);
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'DM Sans', -apple-system, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* Film grain overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ========== NAV ========== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 242, 234, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.3s;
+}
+
+.logo {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+    background: var(--ink);
+    color: var(--paper) !important;
+    padding: 0.65rem 1.5rem;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(--accent); }
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--ink);
+}
+
+/* ========== HERO ========== */
+.hero {
+    min-height: 100vh;
+    padding: 10rem 3rem 5rem;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+}
+
+.hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    opacity: 0.06;
+}
+
+.hero-grid-lines::before,
+.hero-grid-lines::after {
+    content: "";
+    border-left: 1px solid var(--ink);
+    grid-column: 4;
+}
+
+.hero-grid-lines::after { grid-column: 9; }
+
+.eyebrow {
+    font-family: var(--body);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+}
+
+h1.hero-title {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    color: var(--ink);
+}
+
+h1.hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 144;
+}
+
+.hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.btn::after {
+    content: "→";
+    transition: transform 0.2s;
+}
+
+.btn:hover::after { transform: translateX(4px); }
+
+.hero-image {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--ink);
+    overflow: hidden;
+}
+
+.hero-image-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a2340 0%, #0a0e1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.25);
+    font-family: var(--display);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--accent);
+    transform: translate(12px, 12px);
+    z-index: -1;
+}
+
+.hero-stats {
+    position: absolute;
+    right: -2rem;
+    bottom: -2rem;
+    background: var(--paper);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 20px 60px rgba(10, 14, 26, 0.15);
+    border-left: 3px solid var(--accent);
+    max-width: 280px;
+}
+
+.hero-stats .stat-number {
+    font-family: var(--display);
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink);
+}
+
+.hero-stats .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.5rem;
+}
+
+/* ========== CRED STRIP ========== */
+.cred-strip {
+    padding: 2.5rem 3rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.cred-marquee {
+    display: flex;
+    gap: 4rem;
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    animation: marquee 40s linear infinite;
+}
+
+.cred-marquee span {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.cred-marquee span::after {
+    content: "✧";
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ========== ABOUT ========== */
+section { padding: 7rem 3rem; position: relative; }
+
+.section-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: baseline;
+}
+
+.section-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    padding-top: 0.5rem;
+    border-top: 2px solid var(--accent);
+    display: inline-block;
+}
+
+.section-title {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.section-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+}
+
+.about-text p:first-child::first-letter {
+    font-family: var(--display);
+    font-size: 4.5rem;
+    font-weight: 400;
+    float: left;
+    line-height: 0.85;
+    padding: 0.3rem 0.75rem 0 0;
+    color: var(--accent);
+}
+
+.bio-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-self: start;
+    position: sticky;
+    top: 8rem;
+}
+
+.bio-stat {
+    padding: 2rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--accent);
+}
+
+.bio-stat-number {
+    font-family: var(--display);
+    font-size: 2.75rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+}
+
+.bio-stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+/* ========== TALKS ========== */
+.talks-section {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.talks-section .section-label { color: var(--gold); border-top-color: var(--gold); }
+.talks-section .section-title em { color: var(--gold); }
+
+.talks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.talk-card {
+    border-top: 2px solid var(--paper);
+    padding-top: 2rem;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+.talk-card:hover { border-top-color: var(--gold); }
+
+.talk-number {
+    font-family: var(--display);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.talk-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--paper);
+}
+
+.talk-hook {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(245, 242, 234, 0.75);
+    margin-bottom: 1.5rem;
+}
+
+.talk-takeaways {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.talk-takeaways li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: rgba(245, 242, 234, 0.85);
+    padding-left: 1.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(245, 242, 234, 0.1);
+}
+
+.talk-takeaways li::before {
+    content: "→";
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+.talk-audience {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* ========== VIDEO ========== */
+.video-section {
+    text-align: center;
+    padding: 7rem 3rem;
+}
+
+.video-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(10, 14, 26, 0.25);
+    cursor: pointer;
+}
+
+.video-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a2340 0%, #0a0e1a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    color: var(--paper);
+}
+
+.video-play-btn {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-size: 1.6rem;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0 rgba(201, 48, 44, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.video-wrapper:hover .video-play-btn {
+    transform: scale(1.1);
+    background: var(--paper);
+    color: var(--accent);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(201, 48, 44, 0.5); }
+    70% { box-shadow: 0 0 0 30px rgba(201, 48, 44, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(201, 48, 44, 0); }
+}
+
+.video-label {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+.video-sublabel {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 242, 234, 0.5);
+}
+
+/* ========== PRESS ========== */
+.press-section {
+    background: var(--paper-warm);
+    padding: 7rem 3rem;
+}
+
+.press-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    align-items: center;
+}
+
+.press-logo {
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--muted);
+    transition: color 0.2s;
+    padding: 1.5rem;
+    border: 1px solid transparent;
+}
+
+.press-logo:hover {
+    color: var(--ink);
+    border-color: var(--line);
+}
+
+.quote-block {
+    max-width: 900px;
+    margin: 5rem auto 0;
+    padding: 3rem;
+    border-left: 4px solid var(--accent);
+    background: var(--paper);
+    position: relative;
+}
+
+.quote-mark {
+    font-family: var(--display);
+    font-size: 6rem;
+    line-height: 0.5;
+    color: var(--accent);
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    font-weight: 900;
+}
+
+.quote-text {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    padding-left: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.quote-attr {
+    padding-left: 3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials {
+    padding: 7rem 3rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    padding: 3rem;
+    background: var(--paper-warm);
+    position: relative;
+}
+
+.testimonial-text {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--ink);
+}
+
+.testimonial-attr {
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.testimonial-attr strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0;
+    font-size: 1rem;
+}
+
+/* ========== BOOKING ========== */
+.booking-section {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8rem 3rem;
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.booking-info .section-label {
+    color: var(--accent);
+    border-top-color: var(--accent);
+}
+
+.booking-info h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    margin-bottom: 2rem;
+}
+
+.booking-info h2 em { color: var(--accent); font-style: italic; }
+
+.booking-info p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: rgba(245, 242, 234, 0.85);
+}
+
+.rate-card {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(245, 242, 234, 0.2);
+    padding-top: 2rem;
+}
+
+.rate-card h4 {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.rate-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(245, 242, 234, 0.1);
+    font-size: 0.95rem;
+}
+
+.rate-row:last-child { border-bottom: none; }
+
+.rate-row .price {
+    font-family: var(--display);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Form */
+.booking-form {
+    background: rgba(245, 242, 234, 0.04);
+    padding: 3rem;
+    border: 1px solid rgba(245, 242, 234, 0.15);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: rgba(245, 242, 234, 0.7);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: rgba(245, 242, 234, 0.06);
+    border: 1px solid rgba(245, 242, 234, 0.2);
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(245, 242, 234, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: var(--body);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: var(--paper);
+    color: var(--ink);
+    transform: translateY(-2px);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background: var(--paper);
+    padding: 4rem 3rem 2.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.footer-brand h3 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.footer-brand h3 span { color: var(--accent); }
+
+.footer-brand p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+.footer-col h5 {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-col a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer-social a {
+    color: var(--ink);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-social a:hover { color: var(--accent); }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        flex-direction: column;
+        padding: 2rem;
+        border-bottom: 1px solid var(--line);
+        gap: 1.5rem;
+    }
+
+    .hero {
+        padding: 8rem 1.5rem 4rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .hero-image { max-height: 500px; }
+    .hero-stats { right: 1rem; bottom: 1rem; }
+
+    section { padding: 5rem 1.5rem; }
+
+    .section-header { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .bio-stats { position: static; }
+    .talks-grid { grid-template-columns: 1fr; }
+    .press-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .booking-section { padding: 5rem 1.5rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+    h1.hero-title { font-size: 2.75rem; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .press-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .quote-text { font-size: 1.2rem; padding-left: 2rem; }
+    .quote-mark { font-size: 4rem; }
+    .quote-attr { padding-left: 2rem; }
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+    <a href="#" class="logo">Edelman<span>.</span></a>
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#book" class="nav-cta">Book AJ</a></li>
+    </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="hero-grid-lines"></div>
+    <div class="hero-copy">
+        <div class="eyebrow">Keynote Speaker &amp; 2× Winter Olympian</div>
+        <h1 class="hero-title">Olympian.<br>Engineer.<br><em>Jewish.</em></h1>
+        <p class="hero-sub">
+            Israel's first double-sport Winter Olympian — Pyeongchang skeleton, Milano-Cortina bobsled. MIT mechanical engineer. Yale MBA. First Orthodox Jew in Winter Olympic history.
+        </p>
+        <div class="hero-ctas">
+            <a href="#book" class="btn btn-primary">Book AJ</a>
+            <a href="#talks" class="btn btn-secondary">See Talks</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <!-- Replace with your headshot: <img src="photos/aj-hero.jpg" alt="AJ Edelman"> -->
+        <div class="hero-image-placeholder">Your hero photo here</div>
+        <div class="hero-stats">
+            <div class="stat-number">2×</div>
+            <div class="stat-label">Winter Olympian<br>2018 &amp; 2026</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CRED STRIP ============ -->
+<div class="cred-strip">
+    <div class="cred-marquee">
+        <span>Forbes 30 Under 30</span>
+        <span>MIT '14 Mech E</span>
+        <span>Yale SOM MBA</span>
+        <span>Pyeongchang 2018</span>
+        <span>Milano-Cortina 2026</span>
+        <span>TEDx Speaker</span>
+        <span>Talks at Google</span>
+        <span>Founder, Advancing Jewish Athletics</span>
+        <!-- Duplicate for seamless loop -->
+        <span>Forbes 30 Under 30</span>
+        <span>MIT '14 Mech E</span>
+        <span>Yale SOM MBA</span>
+        <span>Pyeongchang 2018</span>
+        <span>Milano-Cortina 2026</span>
+        <span>TEDx Speaker</span>
+        <span>Talks at Google</span>
+        <span>Founder, Advancing Jewish Athletics</span>
+    </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
+    <div class="section-header reveal">
+        <span class="section-label">About AJ</span>
+        <h2 class="section-title">An unlikely Olympian. An <em>unapologetic</em> voice.</h2>
+    </div>
+    <div class="about-grid">
+        <div class="about-text reveal">
+            <p>
+                AJ Edelman is Israel's first double-sport Winter Olympian. He competed in skeleton at Pyeongchang 2018 — becoming the first Israeli to podium on the North American Cup and the first Orthodox Jew in Winter Olympic history — and returned in 2026 as captain and pilot of "Shul Runnings," Israel's first-ever Olympic bobsled team.
+            </p>
+            <p>
+                Between the Games, AJ earned a B.S. in mechanical engineering from MIT and an MBA from the Yale School of Management. He founded Advancing Jewish Athletics, a nonprofit building a pipeline for Jewish and Israeli athletes at the highest levels of sport. Forbes named him to its 30 Under 30 Europe list in 2021.
+            </p>
+            <p>
+                Since October 7, AJ has emerged as one of the most compelling Jewish voices in American public life. He speaks to Federations, synagogues, JCCs, Hillels, corporate audiences, and campus communities about Jewish pride, peak performance, and what it means to build something from absolute zero.
+            </p>
+        </div>
+        <div class="bio-stats reveal">
+            <div class="bio-stat">
+                <div class="bio-stat-number">2×</div>
+                <div class="bio-stat-label">Winter Olympics Pyeongchang &amp; Milano-Cortina</div>
+            </div>
+            <div class="bio-stat">
+                <div class="bio-stat-number">4×</div>
+                <div class="bio-stat-label">Israeli National Skeleton Champion</div>
+            </div>
+            <div class="bio-stat">
+                <div class="bio-stat-number">1st</div>
+                <div class="bio-stat-label">Orthodox Jew in Winter Olympic history</div>
+            </div>
+            <div class="bio-stat">
+                <div class="bio-stat-number">1st</div>
+                <div class="bio-stat-label">Israeli bobsled team ever to compete at Olympics</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ TALKS ============ -->
+<section id="talks" class="talks-section">
+    <div class="section-header reveal">
+        <span class="section-label">Signature Talks</span>
+        <h2 class="section-title">Three keynotes. <em>One unforgettable</em> message.</h2>
+    </div>
+    <div class="talks-grid">
+        <article class="talk-card reveal">
+            <div class="talk-number">01 · Signature</div>
+            <h3 class="talk-title">Shul Runnings</h3>
+            <p class="talk-hook">Building Israel's Olympic team from nothing — and what it taught me about building from nothing in your own life.</p>
+            <ul class="talk-takeaways">
+                <li>First-principles thinking under constraint</li>
+                <li>Turning founder mentality into execution</li>
+                <li>What the engineer's approach to zero looks like</li>
+            </ul>
+            <div class="talk-audience">For: Corporate · Conferences · Founders</div>
+        </article>
+
+        <article class="talk-card reveal">
+            <div class="talk-number">02 · Jewish</div>
+            <h3 class="talk-title">Victor, Not Victim</h3>
+            <p class="talk-hook">Jewish identity after October 7 — from an Orthodox Olympian who refused to hide his team's flag in Italy.</p>
+            <ul class="talk-takeaways">
+                <li>The case for unapologetic Jewish pride</li>
+                <li>How we show up, not disappear</li>
+                <li>The pride paradox in post-Oct 7 America</li>
+            </ul>
+            <div class="talk-audience">For: Federations · Synagogues · JCCs · Hillels</div>
+        </article>
+
+        <article class="talk-card reveal">
+            <div class="talk-number">03 · Performance</div>
+            <h3 class="talk-title">MIT to Olympus</h3>
+            <p class="talk-hook">The engineer's mindset meets elite athletic performance — and what that combination does for the way you lead.</p>
+            <ul class="talk-takeaways">
+                <li>Decision-making under extreme pressure</li>
+                <li>The rigor of process over outcome</li>
+                <li>How athletes actually build mental capacity</li>
+            </ul>
+            <div class="talk-audience">For: Corporate · Leadership · MBA Programs</div>
+        </article>
+    </div>
+</section>
+
+<!-- ============ VIDEO ============ -->
+<section class="video-section">
+    <div class="section-header reveal" style="margin-bottom: 3rem;">
+        <span class="section-label">Watch AJ Speak</span>
+        <h2 class="section-title">90 seconds. <em>One reel.</em></h2>
+    </div>
+    <div class="video-wrapper reveal">
+        <div class="video-placeholder">
+            <div class="video-play-btn">▶</div>
+            <div class="video-label">Sizzle Reel</div>
+            <div class="video-sublabel">Replace with YouTube/Vimeo embed</div>
+        </div>
+        <!-- Replace placeholder with actual embed:
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                frameborder="0" allowfullscreen></iframe>
+        -->
+    </div>
+</section>
+
+<!-- ============ PRESS ============ -->
+<section id="press" class="press-section">
+    <div class="section-header reveal">
+        <span class="section-label">Press &amp; Media</span>
+        <h2 class="section-title">Covered by the outlets <em>that matter.</em></h2>
+    </div>
+    <div class="press-grid reveal">
+        <div class="press-logo">Forbes</div>
+        <div class="press-logo">NBC Sports</div>
+        <div class="press-logo">The Boston Globe</div>
+        <div class="press-logo">Fox News</div>
+        <div class="press-logo">Tablet Magazine</div>
+        <div class="press-logo">Times of Israel</div>
+        <div class="press-logo">Jerusalem Post</div>
+        <div class="press-logo">The Algemeiner</div>
+    </div>
+
+    <div class="quote-block reveal">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">Edelman's journey from Boston Modern Orthodoxy to the Olympic starting gate is one of the most unlikely and compelling athletic stories of the decade.</div>
+        <div class="quote-attr">— Representative press coverage · Replace with verified pull quote</div>
+    </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="testimonials">
+    <div class="section-header reveal">
+        <span class="section-label">What Audiences Say</span>
+        <h2 class="section-title">The response, <em>in their words.</em></h2>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial reveal">
+            <p class="testimonial-text">[Placeholder testimonial — replace with your own. Ask your best past client for a 2–3 sentence quote about what the audience response was and who you'd recommend AJ to.]</p>
+            <div class="testimonial-attr">
+                <strong>[Client Name]</strong>
+                Executive Director · [Organization]
+            </div>
+        </div>
+        <div class="testimonial reveal">
+            <p class="testimonial-text">[Second placeholder — replace with your second strongest testimonial. Prioritize quotes that reference fee-worthy outcomes: audience engagement, standing ovation, renewed booking requests.]</p>
+            <div class="testimonial-attr">
+                <strong>[Client Name]</strong>
+                Event Chair · [Organization]
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="book" class="booking-section">
+    <div class="booking-grid">
+        <div class="booking-info reveal">
+            <span class="section-label">Book AJ</span>
+            <h2>Bring the story that <em>only AJ can tell</em> to your audience.</h2>
+            <p>
+                AJ speaks 30–40 times per year for Jewish Federations, corporate audiences, universities, and national advocacy events. Fees below are starting ranges — final pricing depends on event length, location, and scope. International travel and multi-day engagements quoted separately.
+            </p>
+            <p>
+                For media requests, podcast bookings, or press inquiries, note that in the form and your inquiry will be routed appropriately.
+            </p>
+
+            <div class="rate-card">
+                <h4>Speaking Rate Card</h4>
+                <div class="rate-row">
+                    <span>Synagogue / Hillel / JCC / Day School</span>
+                    <span class="price">$12,500+</span>
+                </div>
+                <div class="rate-row">
+                    <span>Federation / Campus Coalition / Regional AIPAC</span>
+                    <span class="price">$15,000+</span>
+                </div>
+                <div class="rate-row">
+                    <span>National Galas / FIDF Mainstage / JFNA GA</span>
+                    <span class="price">$20,000+</span>
+                </div>
+                <div class="rate-row">
+                    <span>Corporate Keynote / ERG / Fortune 500</span>
+                    <span class="price">$25,000+</span>
+                </div>
+                <div class="rate-row">
+                    <span>Scholar-in-Residence Weekend</span>
+                    <span class="price">Quoted</span>
+                </div>
+            </div>
+        </div>
+
+        <form class="booking-form reveal" id="bookingForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="org">Organization</label>
+                    <input type="text" id="org" name="org" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="type">Event Type</label>
+                <select id="type" name="type" required>
+                    <option value="">Select one…</option>
+                    <option>Synagogue / JCC / Hillel</option>
+                    <option>Federation / Jewish Communal</option>
+                    <option>National Gala / FIDF / AIPAC</option>
+                    <option>Corporate / ERG</option>
+                    <option>University / Campus</option>
+                    <option>Podcast / Media</option>
+                    <option>Scholar-in-Residence</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location (City, State)</label>
+                    <input type="text" id="location" name="location">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Event Details &amp; Budget</label>
+                <textarea id="message" name="message" placeholder="Expected audience size, theme, budget range, specific talk interest, any other context…" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Inquiry</button>
+        </form>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>Edelman<span>.</span></h3>
+            <p>Israel's first double-sport Winter Olympian. MIT engineer. Yale MBA. Keynote speaker on Jewish identity, peak performance, and building from nothing.</p>
+        </div>
+        <div class="footer-col">
+            <h5>Navigate</h5>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#talks">Talks</a></li>
+                <li><a href="#press">Press</a></li>
+                <li><a href="#book">Book AJ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Contact</h5>
+            <ul>
+                <li><a href="mailto:booking@ajedelman.com">booking@ajedelman.com</a></li>
+                <li><a href="#book">Booking Inquiry</a></li>
+                <li><a href="#" download>Download Speaker Kit</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h5>Organizations</h5>
+            <ul>
+                <li><a href="https://www.advancingjewishathletics.org" target="_blank">Advancing Jewish Athletics</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>&copy; 2026 AJ Edelman. All rights reserved.</div>
+        <div class="footer-social">
+            <a href="https://x.com/realajedelman" target="_blank">X</a>
+            <a href="https://instagram.com/ajedelman" target="_blank">Instagram</a>
+            <a href="https://linkedin.com/in/ajedelman" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+const toggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+toggle?.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('active'));
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submission (replace with real endpoint or Formspree/Netlify Forms)
+document.getElementById('bookingForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    // In production, send to Formspree, Netlify Forms, or your endpoint:
+    // fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: formData })
+    //   .then(() => showSuccess())
+    //   .catch(() => showError());
+
+    console.log('Booking inquiry:', data);
+    alert('Thanks — your inquiry has been received. AJ will be in touch within 48 hours.\n\n(Note: replace this handler with a real form endpoint — see comments in code.)');
+    e.target.reset();
+});
+
+// Nav shrink on scroll
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const y = window.scrollY;
+    if (y > 100) {
+        nav.style.padding = '0.85rem 3rem';
+    } else {
+        nav.style.padding = '1.25rem 3rem';
+    }
+    lastScroll = y;
+});
+
+// Smooth scroll (fallback, native browsers handle most)
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+            const target = document.querySelector(id);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
