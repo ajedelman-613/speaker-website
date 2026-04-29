@@ -1398,11 +1398,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// Alt+P → PM job pipeline
+// Alt+P → PM job pipeline, Alt+I → homepage
 document.addEventListener('keydown', (e) => {
-    if (e.altKey && !e.ctrlKey && !e.metaKey && (e.key === 'p' || e.key === 'P')) {
+    if (!e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === 'p' || e.key === 'P') {
         e.preventDefault();
         window.location.href = 'pm-pipeline.html';
+    } else if (e.key === 'i' || e.key === 'I') {
+        e.preventDefault();
+        window.location.href = 'index.html';
     }
 });
 </script>

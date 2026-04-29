@@ -168,6 +168,7 @@ function render(){var q=document.getElementById('search').value.toLowerCase().tr
 function toggleDetail(n){var r=document.getElementById('detail-'+n);if(!r)return;if(openRows.has(n)){openRows.delete(n);r.classList.remove('open');}else{openRows.add(n);r.classList.add('open');}}
 function downloadPipeline(){var active=JOBS.filter(function(j){return !j.deleted;});var snap=active.map(function(j){return{n:j.n,t:j.t,co:j.co,u:j.u,ceo:j.ceo,vc:j.vc,loc:j.loc,comp:j.comp,compN:j.compN,v:j.v,rt:j.rt,note:j.note,fav:j.fav,deleted:false};});var jb='const JOBS='+JSON.stringify(snap)+';';var html=document.documentElement.outerHTML.replace(/const JOBS=\[[\s\S]*?\];/,jb);var blob=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='[C] PM Pipeline - AJ Edelman.html';a.click();URL.revokeObjectURL(a.href);}
 loadState();sortBy('n');updateCounts();
+document.addEventListener('keydown',function(e){if(!e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='i'||e.key==='I'){e.preventDefault();window.location.href='index.html';}else if(e.key==='p'||e.key==='P'){e.preventDefault();window.location.href='pm-pipeline.html';}});
 </script>
 
 </body></html>
