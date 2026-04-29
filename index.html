@@ -1397,6 +1397,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         }
     });
 });
+
+// Alt+P → PM job pipeline
+document.addEventListener('keydown', (e) => {
+    if (e.altKey && !e.ctrlKey && !e.metaKey && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        window.location.href = 'pm-pipeline.html';
+    }
+});
 </script>
 
 </body>
