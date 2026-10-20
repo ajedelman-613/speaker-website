@@ -651,49 +651,6 @@ section { padding: 7rem 3rem; position: relative; }
     font-weight: 500;
 }
 
-/* ========== TESTIMONIALS ========== */
-.testimonials {
-    padding: 7rem 3rem;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.testimonial {
-    padding: 3rem;
-    background: var(--paper-warm);
-    position: relative;
-}
-
-.testimonial-text {
-    font-family: var(--display);
-    font-size: 1.15rem;
-    line-height: 1.6;
-    font-style: italic;
-    margin-bottom: 2rem;
-    color: var(--ink);
-}
-
-.testimonial-attr {
-    font-size: 0.85rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-}
-
-.testimonial-attr strong {
-    display: block;
-    color: var(--ink);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    letter-spacing: 0;
-    font-size: 1rem;
-}
-
 /* ========== BOOKING ========== */
 .booking-section {
     background: var(--ink);
@@ -730,6 +687,10 @@ section { padding: 7rem 3rem; position: relative; }
     line-height: 1.7;
     margin-bottom: 2rem;
     color: rgba(245, 242, 234, 0.85);
+}
+
+.booking-section a {
+    color: var(--accent);
 }
 
 .rate-card {
@@ -953,7 +914,6 @@ footer {
     .bio-stats { position: static; }
     .talks-grid { grid-template-columns: 1fr; }
     .press-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    .testimonial-grid { grid-template-columns: 1fr; }
     .booking-grid { grid-template-columns: 1fr; gap: 3rem; }
     .booking-section { padding: 5rem 1.5rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -996,8 +956,7 @@ footer {
         <li><a href="#about">About</a></li>
         <li><a href="#talks">Talks</a></li>
         <li><a href="#press">Press</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#book" class="nav-cta">Book AJ</a></li>
+        <li><a href="mailto:aj@ajedelman.com" class="nav-cta">Book AJ</a></li>
     </ul>
 </nav>
 
@@ -1011,7 +970,7 @@ footer {
             Israel's first double-sport Winter Olympian — Pyeongchang skeleton, Milano-Cortina bobsled. MIT mechanical engineer. Yale MBA. First Orthodox Jew in Winter Olympic history.
         </p>
         <div class="hero-ctas">
-            <a href="#book" class="btn btn-primary">Book AJ</a>
+            <a href="mailto:aj@ajedelman.com" class="btn btn-primary">Book AJ</a>
             <a href="#talks" class="btn btn-secondary">See Talks</a>
         </div>
     </div>
@@ -1175,119 +1134,18 @@ footer {
     </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section id="testimonials" class="testimonials">
-    <div class="section-header reveal">
-        <span class="section-label">What Audiences Say</span>
-        <h2 class="section-title">The response, <em>in their words.</em></h2>
-    </div>
-    <div class="testimonial-grid">
-        <div class="testimonial reveal">
-            <p class="testimonial-text">[Placeholder testimonial — replace with your own. Ask your best past client for a 2–3 sentence quote about what the audience response was and who you'd recommend AJ to.]</p>
-            <div class="testimonial-attr">
-                <strong>[Client Name]</strong>
-                Executive Director · [Organization]
-            </div>
-        </div>
-        <div class="testimonial reveal">
-            <p class="testimonial-text">[Second placeholder — replace with your second strongest testimonial. Prioritize quotes that reference fee-worthy outcomes: audience engagement, standing ovation, renewed booking requests.]</p>
-            <div class="testimonial-attr">
-                <strong>[Client Name]</strong>
-                Event Chair · [Organization]
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ============ BOOKING ============ -->
 <section id="book" class="booking-section">
     <div class="booking-grid">
         <div class="booking-info reveal">
             <span class="section-label">Book AJ</span>
             <h2>Bring the story that <em>only AJ can tell</em> to your audience.</h2>
-            <p>
-                AJ speaks 30–40 times per year for Jewish Federations, corporate audiences, universities, and national advocacy events. Fees below are starting ranges — final pricing depends on event length, location, and scope. International travel and multi-day engagements quoted separately.
-            </p>
-            <p>
-                For media requests, podcast bookings, or press inquiries, note that in the form and your inquiry will be routed appropriately.
-            </p>
-
-            <div class="rate-card">
-                <h4>Speaking Rate Card</h4>
-                <div class="rate-row">
-                    <span>Synagogue / Hillel / JCC / Day School</span>
-                    <span class="price">$12,500+</span>
-                </div>
-                <div class="rate-row">
-                    <span>Federation / Campus Coalition / Regional AIPAC</span>
-                    <span class="price">$15,000+</span>
-                </div>
-                <div class="rate-row">
-                    <span>National Galas / FIDF Mainstage / JFNA GA</span>
-                    <span class="price">$20,000+</span>
-                </div>
-                <div class="rate-row">
-                    <span>Corporate Keynote / ERG / Fortune 500</span>
-                    <span class="price">$25,000+</span>
-                </div>
-                <div class="rate-row">
-                    <span>Scholar-in-Residence Weekend</span>
-                    <span class="price">Quoted</span>
-                </div>
-            </div>
+            <p>Contact for availability <a href="mailto:aj@ajedelman.com">aj@ajedelman.com</a></p>
         </div>
 
-        <form class="booking-form reveal" id="bookingForm">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="org">Organization</label>
-                    <input type="text" id="org" name="org" required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone (optional)</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="type">Event Type</label>
-                <select id="type" name="type" required>
-                    <option value="">Select one…</option>
-                    <option>Synagogue / JCC / Hillel</option>
-                    <option>Federation / Jewish Communal</option>
-                    <option>National Gala / FIDF / AIPAC</option>
-                    <option>Corporate / ERG</option>
-                    <option>University / Campus</option>
-                    <option>Podcast / Media</option>
-                    <option>Scholar-in-Residence</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="date">Preferred Date</label>
-                    <input type="date" id="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="location">Location (City, State)</label>
-                    <input type="text" id="location" name="location">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="message">Event Details &amp; Budget</label>
-                <textarea id="message" name="message" placeholder="Expected audience size, theme, budget range, specific talk interest, any other context…" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Inquiry</button>
-        </form>
+        <div class="booking-form reveal">
+            <p>Contact for availability: <a href="mailto:aj@ajedelman.com">aj@ajedelman.com</a></p>
+        </div>
     </div>
 </section>
 
@@ -1311,7 +1169,7 @@ footer {
             <h5>Contact</h5>
             <ul>
                 <li><a href="mailto:booking@ajedelman.com">booking@ajedelman.com</a></li>
-                <li><a href="#book">Booking Inquiry</a></li>
+                <li><a href="mailto:aj@ajedelman.com">Booking Inquiry</a></li>
                 <li><a href="#" download>Download Speaker Kit</a></li>
             </ul>
         </div>
@@ -1354,22 +1212,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Form submission (replace with real endpoint or Formspree/Netlify Forms)
-document.getElementById('bookingForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-
-    // In production, send to Formspree, Netlify Forms, or your endpoint:
-    // fetch('https://formspree.io/f/YOUR_ID', { method: 'POST', body: formData })
-    //   .then(() => showSuccess())
-    //   .catch(() => showError());
-
-    console.log('Booking inquiry:', data);
-    alert('Thanks — your inquiry has been received. AJ will be in touch within 48 hours.\n\n(Note: replace this handler with a real form endpoint — see comments in code.)');
-    e.target.reset();
-});
 
 // Nav shrink on scroll
 let lastScroll = 0;
